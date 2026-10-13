@@ -1,0 +1,11 @@
+pub mod error;
+pub mod config;
+pub mod io;
+pub mod il2cpp;
+pub mod formats;
+pub mod search;
+pub mod utils;
+pub mod executor;
+pub mod output;
+pub mod disassembler;
+pub mod recovery;

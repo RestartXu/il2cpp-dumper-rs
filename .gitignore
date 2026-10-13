@@ -1,0 +1,20 @@
+/target
+libil2cpp.so
+global-metadata.dat
+libil2cpp39.so
+global-metadata39.dat
+UnityFramework
+GameAssembly.dll
+/.claude
+/vendor/rz-ghidra/build-out
+/arm32elftest
+# Generated dumps and run outputs (any name the dumper derives).
+/Dump*/
+/out-*/
+# Project-local scratch/output dir for agent runs (persists across sessions).
+/tmp/
+/concord_findings.jsonl
+__pycache__/
+*.pyc
+verify_findings.jsonl
+/docs

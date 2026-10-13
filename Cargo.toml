@@ -1,0 +1,61 @@
+[package]
+name = "il2cpp_dumper"
+version = "8.0.0"
+edition = "2024"
+authors = ["Rodroidmods"]
+license = "MIT"
+description = "A blazing fast and reliable il2cpp dumper cross platfrom."
+homepage = "https://github.com/rodroidmods/il2cpp-dumper-rs"
+repository = "https://github.com/rodroidmods/il2cpp-dumper-rs"
+keywords = ["il2cpp", "dumper", "android", "windows", "reverse-engineering"]
+categories = ["development-tools", "parsing", "security"]
+readme = "README.md"
+
+[[bin]]
+name = "il2cpp_dumper"
+path = "src/main.rs"
+
+[dependencies]
+byteorder = "1"
+clap = { version = "4", features = ["derive"] }
+console = "0.16"
+dialoguer = "0.12"
+dotnetdll = { version = "0.1.3", path = "dotnetdll-main" }
+indicatif = "0.18"
+lz4_flex = "0.11"
+rayon = "1.11.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+yaxpeax-arm = "0.4"
+yaxpeax-arch = "0.3"
+iced-x86 = "1.21"
+include_dir = "0.7.4"
+string-interner = "0.20.0"
+fixedbitset = "0.5.7"
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[features]
+# Native pseudo-C# generation (recovery engine) is built-in; the vendored
+# Ghidra decompiler has been removed as a dependency.
+default = []
+
+[dev-dependencies]
+pretty_assertions = "1"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+debug = false
+overflow-checks = false
+
+[profile.release.package."*"]
+opt-level = 3
+codegen-units = 1
+strip = true
+debug = false
+overflow-checks = false
